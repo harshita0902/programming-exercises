@@ -1,13 +1,17 @@
 def pairs(k, arr):
     count=0
-    #arr.sort()
-    for i in range(len(arr)-1):
-        j=i+1
-        while (j< len(arr)) and (arr[j]-arr[i] <= k):
-            if ((arr[j]- arr[i]) == k):
+    arr.sort()
+    i=0
+    j=i+1
+    while ((i< len(arr)-1) and (j<len(arr))):
+        if(arr[j]-arr[i] < k):
+            j+=1
+        elif ((arr[j]- arr[i]) == k):
                 count+=1
-        j+=1
-    return count          
+                i+=1
+        else:
+            i+=1
+    return count         
 
 if __name__ == '__main__':
 
